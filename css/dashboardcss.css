@@ -1,0 +1,115 @@
+* {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+}
+
+.subscribe .input-group{
+    border-radius: 30px;
+    background: #fff;
+    max-width: 300px;
+    margin: auto 30px;
+    padding: 0px;
+    border: 1px solid #E4E5E6;
+}
+
+.subscribe .form-control{
+    border: none;
+    background: transparent;
+}
+
+.subscribe .form-control:focus{
+    box-shadow: none;
+    background: transparent;
+}
+
+.subscribe .form-control:focus{
+    box-shadow: none;
+    background: transparent;
+}
+
+.subscribe .input-group-append{
+    background-image: linear-gradient(to right, #F0A205, #F0A205);
+    border-radius: 30px;
+}
+
+.subscribe .input-group-text{
+    background: transparent;
+    border: none;
+    color: #fff;
+}
+
+.subscribe .btn:focus{
+    box-shadow: none
+}
+
+.bg-side{
+    background-color: #fff !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#page-content-wrapper h5{
+    margin: auto 0px;
+    color: #fff;
+}
+
+
+/* search table */
+.subscribe-table{
+    /* box-shadow: 0 0 20px 7px rgba(0, 0, 0, 0.2); */
+    border-bottom: 20px;
+}
+
+.subscribe-table .input-group{
+    border-radius: 30px;
+    background: #fff;
+    max-width: 300px;
+    margin-bottom: 20px;
+    padding: 0px;
+    border: 1px solid #E4E5E6;
+}
+
+.subscribe-table .form-control{
+    border: none;
+    background: transparent;
+}
+
+.subscribe-table .form-control:focus{
+    box-shadow: none;
+    background: transparent;
+}
+
+.subscribe-table .form-control:focus{
+    box-shadow: none;
+    background: transparent;
+}
+
+.subscribe-table .input-group-append{
+    background-image: linear-gradient(to right, #F0A205, #F0A205);
+    border-radius: 30px;
+}
+
+.subscribe-table .input-group-text{
+    background: transparent;
+    border: none;
+    color: #fff;
+}
+
+.subscribe-table .btn:focus{
+    box-shadow: none
+}
+
+#page-content-wrapper #menu-toggle{
+    margin-right: 20px;
+}
+
+.card-stats h3{
+    font-weight: 600;
+}
+
+.footer-dash{
+    padding: 20px;
+}
+
+.table-transaksi .table .thead-dark th{
+    background-color: #5f5f5f !important;
+    border-color: #5f5f5f;
+}
