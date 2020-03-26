@@ -42,120 +42,6 @@
 </head>
 
 <body class="debug_mode">
-
-    <!-- The Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg mw-100 w-75 modal-dialog-centered" id="log1">
-            <div class="modal-content">
-                <div class="modal-body" style="padding: 0;">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12 col-12">
-                            <div class="left-side text-center h-100 my-auto">
-                                <h3>Selamat Datang</h3>
-                                <p>Masukan data diri dan perusahaan anda dan mulai pengalaman baru dalam beriklan
-                                </p>
-                                <button type="button" class="btn btn-light btn-lg" onclick="removeElement()">Buat
-                                    Akun</button>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-12 col-12">
-                            <div class="right-side h-100 my-auto">
-                                <form>
-                                    <div class="form-group">
-                                        <input type="email" class="form-control w-100" placeholder="Email" id="email">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control w-100" placeholder="Password"
-                                            id="pwd">
-                                    </div>
-                                    <div class="forgot clearfix">
-                                        <a href="#" class="float-md-right">Lupa password?</a>
-                                    </div>
-                                </form>
-                                <div class="button text-center">
-                                    <button type="submit" class="btn btn-primary btn-lg">Masuk</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal-dialog modal-lg mw-75 w-50" id="log2" style="display: none;">
-            <div class="modal-content">
-                <div class="modal-body" style="padding: 0;">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 col-12">
-                                <div class="regis">
-                                    <h4 class="text-center">Profile Perusahaan</h4>
-                                    <form action="">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control w-100" placeholder="Nama Depan">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control w-100" placeholder="Nama Belakang">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control w-100" placeholder="Email">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control w-100" placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control w-100" placeholder="Nomor Telepon">
-                                        </div>
-                                        <div class="form-group">
-                                            <textarea class="form-control w-100" rows="2" id="comment"
-                                                placeholder="Alamat"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control w-100"
-                                                placeholder="Kategori Perusahaan">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control w-100" placeholder="NPWP">
-                                        </div>
-                                        <div class="form-group">
-                                            <textarea class="form-control w-100" rows="2" id="comment"
-                                                placeholder="Alamat"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control w-100"
-                                                placeholder="Website(opsional)">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control w-100" placeholder="Nama Bank">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control w-100" placeholder="Nomor Rekening">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control w-100"
-                                                placeholder="Pemilik Rekening">
-                                        </div>
-                                    </form>
-                                    <div class="button text-center">
-                                        <button class="btn btn-success btn-lg">Lanjut</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function removeElement() {
-            document.getElementById("log1").style.display = "none";
-            document.getElementById("log2").style.display = "block";
-        }
-    </script>
-
-
     <div class="d-flex toggled" id="wrapper">
         <div id="loadmodal" class="modal fade bd-example-modal-lg" data-backdrop="static" data-keyboard="false"
             tabindex="-1">
@@ -214,7 +100,7 @@
                 <!-- <button class="btn txt-white" id="menu-toggle">Menu</button> -->
                 <div class="brand mt-2 mt-lg-0">
                     <h5>BILLBOARDINDO</h5>
-                    <p class="text-center">Solusi Iklan Masa Depan Anda</p>
+                    <p>Solusi Iklan Masa Depan</p>
                 </div>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -299,8 +185,7 @@
                         <!-- <div id="mapView">
                             <h2>temukan media iklan yang cocok dengan bisnis anda!</h2>
                             <div id="map_canvas"></div>
-                        </div>
-                         -->
+                        </div> -->
 
                         <div class="search-form d-flex justify-content-center">
                             <div class="input-group mb-3">
@@ -311,9 +196,7 @@
                             </div>
                         </div>
 
-
                         <!-- card kota -->
-
                         <div id="demo5" class="carousel slide w-100" data-ride="carousel">
 
                             <!-- Indicators -->
@@ -477,8 +360,6 @@
 
                         </div>
 
-
-
                         <div id="dtlView">
                             <div class="row" style="display:block;">
                                 <ul id="midMenu"
@@ -509,9 +390,11 @@
 				            </button>
                         </ul>
                     </div>
-		            <div id=" divlist" class="row">
-                                    <div class="row">
-                                        <div class="col-md-3">
+                        <div id=" divCompare" class="row"
+                                    style="display:block; margin-top: 30px; margin-bottom: 30px;">
+                                    <div id="comview" class="row"
+                                        style="height: 545px;border-width: thin; background-color: #f5f5f5; padding: 8px;">
+                                        <div class="col-md-4">
                                             <div class="card">
                                                 <img src="billboard.jpg" class="listimage" />
                                                 <div class="detailprod">
@@ -538,16 +421,15 @@
                                                     </div>
                                                 </div>
                                                 <div class="detailbtn">
-                                                    <button class="btn btn-secondary btn-block">
-                                                        <a
-                                                            href="/mediaweb/Site/ViewDetail/3e1fb387-b14c-4c86-82a8-0031e958783d">
-                                                            <span class="text-white">View Detail</span>
-                                                        </a>
+                                                    <button type="button" class="btn btn-secondary btn-block"
+                                                        value="Delete"
+                                                        onclick="addCompare('/mediaweb/Rest/AddToCompare', 'a13ade19-43f2-4a30-ad86-00a7df8e4504', 'fd91258e-d5dc-44f2-9212-7facb2238fee')">
+                                                        Delete
                                                     </button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
                                             <div class="card">
                                                 <img src="billboard.jpg" class="listimage" />
                                                 <div class="detailprod">
@@ -574,84 +456,20 @@
                                                     </div>
                                                 </div>
                                                 <div class="detailbtn">
-                                                    <button class="btn btn-secondary btn-block">
-                                                        <a
-                                                            href="/mediaweb/Site/ViewDetail/3e1fb387-b14c-4c86-82a8-0031e958783d">
-                                                            <span class="text-white">View Detail</span>
-                                                        </a>
+                                                    <button type="button" class="btn btn-secondary btn-block"
+                                                        value="Delete"
+                                                        onclick="addCompare('/mediaweb/Rest/AddToCompare', 'a13ade19-43f2-4a30-ad86-00a7df8e4504', 'fd91258e-d5dc-44f2-9212-7facb2238fee')">
+                                                        Delete
                                                     </button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
                                             <div class="card">
-                                                <img src="billboard.jpg" class="listimage" />
-                                                <div class="detailprod">
-                                                    <h3 class="pheader">7097JKJW</h3>
-                                                    <p class="pdetail">Alamat Lokasi Billboard</p>
-                                                    <p class="pdetail">Tipe : Billboard</p>
-                                                    <p class="pdetail">Ukuran : 16 X 8</p>
-                                                    <p class="pdetail">H/V : H</p>
-                                                </div>
-                                                <div class="rating ml-auto">
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <p> (4.3)</p>
-                                                </div>
-                                                <div class="d-sm-inline-flex d-sm-inline-flex flex-sm-row-reverse info">
-                                                    <div class="detailprice ml-auto d-inline-block">
-                                                        <p>Rp. <span class="price">6416667</span>,-</p>
-                                                    </div>
-                                                    <div class="month d-inline-block">
-                                                        <p>2 Bulan</p>
-                                                    </div>
-                                                </div>
-                                                <div class="detailbtn">
-                                                    <button class="btn btn-secondary btn-block">
-                                                        <a
-                                                            href="/mediaweb/Site/ViewDetail/3e1fb387-b14c-4c86-82a8-0031e958783d">
-                                                            <span class="text-white">View Detail</span>
-                                                        </a>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="card">
-                                                <img src="billboard.jpg" class="listimage" />
-                                                <div class="detailprod">
-                                                    <h3 class="pheader">7097JKJW</h3>
-                                                    <p class="pdetail">Alamat Lokasi Billboard</p>
-                                                    <p class="pdetail">Tipe : Billboard</p>
-                                                    <p class="pdetail">Ukuran : 16 X 8</p>
-                                                    <p class="pdetail">H/V : H</p>
-                                                </div>
-                                                <div class="rating ml-auto">
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <p> (4.3)</p>
-                                                </div>
-                                                <div class="d-sm-inline-flex d-sm-inline-flex flex-sm-row-reverse info">
-                                                    <div class="detailprice ml-auto d-inline-block">
-                                                        <p>Rp. <span class="price">6416667</span>,-</p>
-                                                    </div>
-                                                    <div class="month d-inline-block">
-                                                        <p>2 Bulan</p>
-                                                    </div>
-                                                </div>
-                                                <div class="detailbtn">
-                                                    <button class="btn btn-secondary btn-block">
-                                                        <a
-                                                            href="/mediaweb/Site/ViewDetail/3e1fb387-b14c-4c86-82a8-0031e958783d">
-                                                            <span class="text-white">View Detail</span>
-                                                        </a>
-                                                    </button>
+                                                <div class="inpt"
+                                                    style="height: 340px; border-color: rgb(146, 146, 146); background-color: #CDCDCD;">
+                                                    <span><i class="fa fa-plus"
+                                                            style="font-size: 100px; color: #EDEDED; margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); "></i></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -684,11 +502,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="detailbtn">
-                                                    <button class="btn btn-secondary btn-block">
-                                                        <a
-                                                            href="/mediaweb/Site/ViewDetail/3e1fb387-b14c-4c86-82a8-0031e958783d">
-                                                            <span class="text-white">View Detail</span>
-                                                        </a>
+                                                    <button type="button" class="btn btn-secondary btn-block"
+                                                        value="Compare"
+                                                        onclick="addCompare('/mediaweb/Rest/AddToCompare', 'a13ade19-43f2-4a30-ad86-00a7df8e4504', 'fd91258e-d5dc-44f2-9212-7facb2238fee')">
+                                                        Compare
                                                     </button>
                                                 </div>
                                             </div>
@@ -720,11 +537,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="detailbtn">
-                                                    <button class="btn btn-secondary btn-block">
-                                                        <a
-                                                            href="/mediaweb/Site/ViewDetail/3e1fb387-b14c-4c86-82a8-0031e958783d">
-                                                            <span class="text-white">View Detail</span>
-                                                        </a>
+                                                    <button type="button" class="btn btn-secondary btn-block"
+                                                        value="Compare"
+                                                        onclick="addCompare('/mediaweb/Rest/AddToCompare', 'a13ade19-43f2-4a30-ad86-00a7df8e4504', 'fd91258e-d5dc-44f2-9212-7facb2238fee')">
+                                                        Compare
                                                     </button>
                                                 </div>
                                             </div>
@@ -756,11 +572,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="detailbtn">
-                                                    <button class="btn btn-secondary btn-block">
-                                                        <a
-                                                            href="/mediaweb/Site/ViewDetail/3e1fb387-b14c-4c86-82a8-0031e958783d">
-                                                            <span class="text-white">View Detail</span>
-                                                        </a>
+                                                    <button type="button" class="btn btn-secondary btn-block"
+                                                        value="Compare"
+                                                        onclick="addCompare('/mediaweb/Rest/AddToCompare', 'a13ade19-43f2-4a30-ad86-00a7df8e4504', 'fd91258e-d5dc-44f2-9212-7facb2238fee')">
+                                                        Compare
                                                     </button>
                                                 </div>
                                             </div>
@@ -792,58 +607,157 @@
                                                     </div>
                                                 </div>
                                                 <div class="detailbtn">
-                                                    <button class="btn btn-secondary btn-block">
-                                                        <a
-                                                            href="/mediaweb/Site/ViewDetail/3e1fb387-b14c-4c86-82a8-0031e958783d">
-                                                            <span class="text-white">View Detail</span>
-                                                        </a>
+                                                    <button type="button" class="btn btn-secondary btn-block"
+                                                        value="Compare"
+                                                        onclick="addCompare('/mediaweb/Rest/AddToCompare', 'a13ade19-43f2-4a30-ad86-00a7df8e4504', 'fd91258e-d5dc-44f2-9212-7facb2238fee')">
+                                                        Compare
                                                     </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                        </div>
-                        <div id="divCompare" class="row" style="display:none">
-                            <div id="comview" class="row"
-                                style="height: 400px;border-width: thin;border-style: dashed;"></div>
-                            <div class="row">
-                                <div class="column Billboard">
-                                    <img src="/MediaWeb/Upload/Image/7285JTJW/7285JTJW.jpg" class="listimage" />
-                                    <div class="detailprod">
-                                        <p class="pheader">7285JTJW</p>
-                                        <p class="pdetail">Alamat Lokasi Billboard</p>
-                                        <p class="pdetail">Tipe : Billboard</p>
-                                        <p class="pdetail">Ukuran : 4 X 6</p>
-                                        <p class="pdetail">H/V : V</p>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="card">
+                                                <img src="billboard.jpg" class="listimage" />
+                                                <div class="detailprod">
+                                                    <h3 class="pheader">7097JKJW</h3>
+                                                    <p class="pdetail">Alamat Lokasi Billboard</p>
+                                                    <p class="pdetail">Tipe : Billboard</p>
+                                                    <p class="pdetail">Ukuran : 16 X 8</p>
+                                                    <p class="pdetail">H/V : H</p>
+                                                </div>
+                                                <div class="rating ml-auto">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <p> (4.3)</p>
+                                                </div>
+                                                <div class="d-sm-inline-flex d-sm-inline-flex flex-sm-row-reverse info">
+                                                    <div class="detailprice ml-auto d-inline-block">
+                                                        <p>Rp. <span class="price">6416667</span>,-</p>
+                                                    </div>
+                                                    <div class="month d-inline-block">
+                                                        <p>2 Bulan</p>
+                                                    </div>
+                                                </div>
+                                                <div class="detailbtn">
+                                                    <button type="button" class="btn btn-secondary btn-block"
+                                                        value="Compare"
+                                                        onclick="addCompare('/mediaweb/Rest/AddToCompare', 'a13ade19-43f2-4a30-ad86-00a7df8e4504', 'fd91258e-d5dc-44f2-9212-7facb2238fee')">
+                                                        Compare
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="card">
+                                                <img src="billboard.jpg" class="listimage" />
+                                                <div class="detailprod">
+                                                    <h3 class="pheader">7097JKJW</h3>
+                                                    <p class="pdetail">Alamat Lokasi Billboard</p>
+                                                    <p class="pdetail">Tipe : Billboard</p>
+                                                    <p class="pdetail">Ukuran : 16 X 8</p>
+                                                    <p class="pdetail">H/V : H</p>
+                                                </div>
+                                                <div class="rating ml-auto">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <p> (4.3)</p>
+                                                </div>
+                                                <div class="d-sm-inline-flex d-sm-inline-flex flex-sm-row-reverse info">
+                                                    <div class="detailprice ml-auto d-inline-block">
+                                                        <p>Rp. <span class="price">6416667</span>,-</p>
+                                                    </div>
+                                                    <div class="month d-inline-block">
+                                                        <p>2 Bulan</p>
+                                                    </div>
+                                                </div>
+                                                <div class="detailbtn">
+                                                    <button type="button" class="btn btn-secondary btn-block"
+                                                        value="Compare"
+                                                        onclick="addCompare('/mediaweb/Rest/AddToCompare', 'a13ade19-43f2-4a30-ad86-00a7df8e4504', 'fd91258e-d5dc-44f2-9212-7facb2238fee')">
+                                                        Compare
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="card">
+                                                <img src="billboard.jpg" class="listimage" />
+                                                <div class="detailprod">
+                                                    <h3 class="pheader">7097JKJW</h3>
+                                                    <p class="pdetail">Alamat Lokasi Billboard</p>
+                                                    <p class="pdetail">Tipe : Billboard</p>
+                                                    <p class="pdetail">Ukuran : 16 X 8</p>
+                                                    <p class="pdetail">H/V : H</p>
+                                                </div>
+                                                <div class="rating ml-auto">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <p> (4.3)</p>
+                                                </div>
+                                                <div class="d-sm-inline-flex d-sm-inline-flex flex-sm-row-reverse info">
+                                                    <div class="detailprice ml-auto d-inline-block">
+                                                        <p>Rp. <span class="price">6416667</span>,-</p>
+                                                    </div>
+                                                    <div class="month d-inline-block">
+                                                        <p>2 Bulan</p>
+                                                    </div>
+                                                </div>
+                                                <div class="detailbtn">
+                                                    <button type="button" class="btn btn-secondary btn-block"
+                                                        value="Compare"
+                                                        onclick="addCompare('/mediaweb/Rest/AddToCompare', 'a13ade19-43f2-4a30-ad86-00a7df8e4504', 'fd91258e-d5dc-44f2-9212-7facb2238fee')">
+                                                        Compare
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="card">
+                                                <img src="billboard.jpg" class="listimage" />
+                                                <div class="detailprod">
+                                                    <h3 class="pheader">7097JKJW</h3>
+                                                    <p class="pdetail">Alamat Lokasi Billboard</p>
+                                                    <p class="pdetail">Tipe : Billboard</p>
+                                                    <p class="pdetail">Ukuran : 16 X 8</p>
+                                                    <p class="pdetail">H/V : H</p>
+                                                </div>
+                                                <div class="rating ml-auto">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <p> (4.3)</p>
+                                                </div>
+                                                <div class="d-sm-inline-flex d-sm-inline-flex flex-sm-row-reverse info">
+                                                    <div class="detailprice ml-auto d-inline-block">
+                                                        <p>Rp. <span class="price">6416667</span>,-</p>
+                                                    </div>
+                                                    <div class="month d-inline-block">
+                                                        <p>2 Bulan</p>
+                                                    </div>
+                                                </div>
+                                                <div class="detailbtn">
+                                                    <button type="button" class="btn btn-secondary btn-block"
+                                                        value="Compare"
+                                                        onclick="addCompare('/mediaweb/Rest/AddToCompare', 'a13ade19-43f2-4a30-ad86-00a7df8e4504', 'fd91258e-d5dc-44f2-9212-7facb2238fee')">
+                                                        Compare
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="detailprice">
-                                        <p>Rp. <span class="price">500000</span>,-</p>
-                                    </div>
-                                    <div class="detailbtn">
-                                        <input type="button" value="Compare"
-                                            style="padding: 5px 10px; font-size: 15px; margin: 5px 5px;"
-                                            onclick="addCompare('/mediaweb/Rest/AddToCompare', 'a13ade19-43f2-4a30-ad86-00a7df8e4504', 'fd91258e-d5dc-44f2-9212-7facb2238fee')" />
-                                    </div>
-                                </div>
-                                <div class="column Billboard">
-                                    <img src="/MediaWeb/Upload/Image/7080SLSA/7080SLSA.jpg" class="listimage" />
-                                    <div class="detailprod">
-                                        <p class="pheader">7080SLSA</p>
-                                        <p class="pdetail">Alamat Lokasi Billboard</p>
-                                        <p class="pdetail">Tipe : Billboard</p>
-                                        <p class="pdetail">Ukuran : 5 X 10</p>
-                                        <p class="pdetail">H/V : V</p>
-                                    </div>
-                                    <div class="detailprice">
-                                        <p>Rp. <span class="price">1283333</span>,-</p>
-                                    </div>
-                                    <div class="detailbtn">
-                                        <input type="button" value="Compare"
-                                            style="padding: 5px 10px; font-size: 15px; margin: 5px 5px;"
-                                            onclick="addCompare('/mediaweb/Rest/AddToCompare', '2fedf5e8-0f3c-4333-ad34-01289f442187', 'c7a36f40-f14b-4ce2-8cd6-0d3298d3d3b7')" />
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
             </div>
@@ -915,8 +829,8 @@
         }
     </script>
 
-    </main>
-    <!-- </div>
+    <!-- </main>
+    </div>
     </div> -->
     <!-- /#page-content-wrapper -->
     <footer class="border-top footer text-muted bg-gray footer">
@@ -972,7 +886,6 @@
         <!-- &copy; 2020 - Billboarindo - <a href="/mediaweb/Home/Privacy">Privacy</a> -->
     </footer>
     <!-- /#wrapper -->
-
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 
 
